@@ -25,20 +25,23 @@ $ mix do deps.get, deps.compile
 From the root folder of your mix project, run the following command:
 
 ```
-mix gen.cron --name MyRoutine --recurrence 2 --period hour
+$ mix gen.cron --name MyRoutine --recurrence 2 --period hour
 ```
 
 This will generate an Elixir file called `my_routine.ex` inside `lib/routines`. The file will contain a skeleton of a CRON-like GenServer, whose schedule will be set to the milliseconds provided by your input. In this case, 2 hours.
 
 The following period arguments are available:
+- `second` 
+- `minute` 
+- `hour`   
+- `day`    
+- `week`
 
-| Period | 
-|:------:|
-| second |
-| minute |
-| hour   |
-| day    |
-| week   |
+### Example
+To create a GenServer routine that should run every 5 minutes sending push notifications to a mobile app:
+```
+$ mix gen.cron --name NotifyMobileUsers --recurrence 5 --period minute
+```
 
 
 Don't forget to add your newly-created GenServer to your list of supervised processes, usually found on `lib/<your_project>/application.ex`, like so:
