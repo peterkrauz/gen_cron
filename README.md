@@ -4,7 +4,7 @@ A CRON-like GenServer stub generator.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+If [available in Hex](https://hex.pm/packages/gen_cron), the package can be installed
 by adding `gen_cron` to your list of dependencies in `mix.exs`:
 
 ```elixir
@@ -37,12 +37,11 @@ The following period arguments are available:
 - `day`    
 - `week`
 
-### Example
+## Example
 To create a GenServer routine that should run every 5 minutes sending push notifications to a mobile app:
 ```
 $ mix gen.cron --name NotifyMobileUsers --recurrence 5 --period minute
 ```
-
 
 Don't forget to add your newly-created GenServer to your list of supervised processes, usually found on `lib/<your_project>/application.ex`, like so:
 

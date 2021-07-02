@@ -19,7 +19,11 @@ defmodule CronGenerator.MixProject do
     [extra_applications: [:logger]]
   end
 
-  defp deps(), do: []
+  defp deps() do
+    [
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+    ]
+  end
 
   defp package_name(), do: "gen_cron"
   defp package_description(), do: "A CRON-like GenServer stub generator"
