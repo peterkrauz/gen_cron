@@ -46,14 +46,14 @@ $ mix gen.cron --name NotifyMobileUsers --recurrence 5 --period minute
 
 Don't forget to add your newly-created GenServer to your list of supervised processes, usually found on `lib/<your_project>/application.ex`, like so:
 
-```diff
+```elixir
 
 use Application
 
 def start(_type, _args) do
   children = [
     ...
-+   Routines.MyRoutine
+    Routines.NotifyMobileUsers
   ]
 
   opts = [strategy: :one_for_one, name: YourProject.Supervisor]
